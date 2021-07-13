@@ -1,0 +1,10 @@
+image: markhobson/maven-chrome:jdk-11
+
+test:
+  script:
+    - mvn clean verify -DbrowserName=chrome -Dheadless=true
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - target/failsafe-reports/TEST-*.xml
